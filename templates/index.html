@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LinkedIn Profile Extractor</title>
+		<link rel="stylesheet" href="../static/css.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<div class="main">
+		<!-- 	<div class="top">
+				<span>Input Page</span>
+			</div> -->
+			<div class="form">
+
+				<form action="/extract" method="POST">
+					<!-- <label for="url">Enter a LinkedIn profile URL:</label> -->
+					<!-- <p><input placeholder="Enter a LinkedIn profile URL" type="text" id="url" name="url"></p> -->
+					<h1>LinkedIn Profile Extractor</h1>
+					<div class="search-wrapper">
+
+					    <div class="input-holder">
+					        <input type="text" class="search-input" name="url" placeholder="Enter a LinkedIn profile URL" />
+					        <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+					    </div>
+					    <span class="close" onclick="searchToggle(this, event);"></span>
+					</div>
+					<!-- <p><input type="submit" value="Submit"></p> -->
+				</form>
+			</div>
+		</div>
+		<div class="end2">
+			<p>information from <a href="https://linkedin.com">linkedin.com</a></p>
+			<p>written by <a href="https://github.com/norahty">norahty</a></p>
+		</div>
+		<script>
+			function searchToggle(obj, evt){
+			    var container = $(obj).closest('.search-wrapper');
+			        if(!container.hasClass('active')){
+			            container.addClass('active');
+			            evt.preventDefault();
+			        }
+			        else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+			            container.removeClass('active');
+			            // clear input
+			            container.find('.search-input').val('');
+			        }
+			}
+		</script>
+	</body>
+</html>
